@@ -1,0 +1,251 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+    font-style: italic;
+}
+
+:root {
+    --background-color: #070707;
+    --text-body-color: white;
+    --accent-color: #e54231;
+}
+
+.observatoire {
+    --accent-color: #ce3d56;
+}
+
+.institution {
+    --accent-color: #000091;
+}
+
+/* Global */
+
+:root {
+    accent-color: var(--accent-color);
+    font-family: "Montserrat", sans-serif;
+    background: var(--background-color);
+    color: var(--text-body-color);
+}
+
+*::selection {
+    background-color: var(--accent-color);
+    color: var(--text-body-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+:is(h1, h2, h3, h4, h5, h6) small {
+    display: block;
+    font-weight: normal;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+}
+
+/* Main */
+
+main {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1000px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15vh;
+}
+
+@media screen and (max-width: 1000px) {
+    main {
+        text-align: justify;
+    }
+}
+
+/* Header */
+
+body > header,
+main > header {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    column-gap: 25px;
+}
+
+main > header {
+    grid-template-columns: 200px 1fr;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+body > header h1,
+main > header h1 {
+    color: var(--accent-color);
+    margin: 0;
+}
+
+body > header h1 small,
+main > header h1 small {
+    color: var(--text-body-color);
+    font-size: 0.7em;
+}
+
+@media screen and (max-width: 800px) {
+    body > header,
+    main > header {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content;
+        align-items: center;
+        justify-content: center;
+        row-gap: 25px;
+
+        text-align: center;
+    }
+
+    body > header img,
+    main > header img {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 200px;
+    }
+}
+
+/* nav */
+
+nav ul {
+    list-style-type: none;
+    line-height: 1.25;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Emergency */
+
+.emergency-menu {
+    padding: 15px;
+}
+
+.emergency-menu ::marker {
+    content: unset;
+}
+
+.emergency-menu ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.emergency-menu a {
+    display: block;
+    width: fit-content;
+    border-radius: 5px;
+    max-width: 100%;
+    color: var(--text-body-color);
+    color: color-mix(in srgb, var(--accent-color) 15%, white);
+    border: solid 2px var(--accent-color);
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: color-mix(in srgb, var(--accent-color) 25%, transparent);
+    box-shadow: var(--accent-color) 0 0 5px;
+}
+
+/* home */
+
+.home {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-auto-flow: min-content;
+}
+
+.home > nav {
+    grid-column: 1;
+}
+
+.home > header {
+    grid-column: 1 / 3;
+}
+
+.home > * {
+    grid-column: 2;
+}
+
+@media screen and (max-width: 800px) {
+    .home {
+        grid-template-columns: 1fr;
+    }
+    
+    .home > nav,
+    .home > header,
+    .home > * {
+        grid-column: 1;
+    }
+}
+
+.home article {
+    border: solid 1px var(--accent-color);
+    padding: 15px;
+    box-shadow: var(--accent-color) 0 0 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.home article > *:first-child {
+    margin-top: 0;
+}
+
+.home article > *:last-child {
+    margin-bottom: 0;
+}
+
+.home article.observatoire img {
+    max-width: 250px;
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+
+.home article p:last-child a:first-child:last-child {
+    display: block;
+    text-align: right;
+    color: white;
+    color: color-mix(in srgb, var(--accent-color) 75%, white);
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.home article p:last-child a:first-child:last-child::after {
+    content: " ➔";
+    font-size: 1.3em;
+}
